@@ -1,0 +1,105 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "TC PK",
+        "type": "PK티",
+        "brand": "떠그클럽",
+        "year": 2022,
+        "price": "158,000원",
+        "color": "블랙",
+        "size": "L 사이즈"
+      },
+      {
+        "id": 2,
+        "name": "TC Tank Top",
+        "type": "나시",
+        "brand": "떠그클럽",
+        "year": 2022,
+        "price": "69,000원",
+        "color": "블랙",
+        "size": "1 사이즈"
+      },
+      {
+        "id": 3,
+        "name": "TC Tank Top",
+        "type": "나시",
+        "brand": "떠그클럽",
+        "year": 2022,
+        "price": "69,000원",
+        "color": "화이트",
+        "size": "1 사이즈"
+      },
+      {
+        "id": 4,
+        "name": "TC Slim T-shirts",
+        "type": "슬림티",
+        "brand": "떠그클럽",
+        "year": 2022,
+        "price": "68,000원",
+        "color": "화이트",
+        "size": "S 사이즈"
+      },
+      {
+        "id": 5,
+        "name": "TC Slim T-shirts",
+        "type": "슬림티",
+        "brand": "떠그클럽",
+        "year": 2022,
+        "price": "68,000원",
+        "color": "블랙",
+        "size": "S 사이즈"
+      },
+      {
+        "id": 6,
+        "name": "Double Knee Laser Denim pants",
+        "type": "청바지",
+        "brand": "떠그클럽",
+        "year": 2023,
+        "price": "238,000원",
+        "color": "데님",
+        "size": "1 사이즈"
+      },
+      {
+        "id": 7,
+        "name": "Thug Pants (2)",
+        "type": "면바지",
+        "brand": "떠그클럽",
+        "year": 2023,
+        "price": "128,000원",
+        "color": "화이트",
+        "size": "M 사이즈"
+      },
+      {
+        "id": 8,
+        "name": "TC Leather Washing Denim Pants",
+        "type": "레더진",
+        "brand": "떠그클럽",
+        "year": 2023,
+        "price": "388,000원",
+        "color": "블랙/블랙",
+        "size": "2 사이즈"
+      },
+      {
+        "id": 9,
+        "name": "TC Leather Puffer Jacket",
+        "type": "패딩",
+        "brand": "떠그클럽",
+        "year": 2023,
+        "price": "388,000원",
+        "color": "블랙",
+        "size": "1 사이즈"
+      },
+      {
+        "id": 10,
+        "name": "Gladiator Hoodie",
+        "type": "후드집업",
+        "brand": "떠그클럽",
+        "year": 2023,
+        "price": "368,000원",
+        "color": "Grey",
+        "size": "2 사이즈"
+      }
+    ]
+  }
+  

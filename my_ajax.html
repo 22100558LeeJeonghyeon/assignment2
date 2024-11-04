@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>제품 관리</title>
+    <style>
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+    </style>
+</head>
+<body>
+    <h1>제품 관리</h1>
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>제품명</th>
+                <th>종류</th>
+                <th>브랜드</th>
+                <th>구매연도</th>
+                <th>가격</th>
+                <th>색상</th>
+                <th>사이즈</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <h2>제품 추가</h2>
+    <form id="productForm">
+        <input type="text" id="name" placeholder="제품명" required>
+        <input type="text" id="type" placeholder="종류" required>
+        <input type="text" id="brand" placeholder="브랜드" required>
+        <input type="number" id="year" placeholder="구매연도" required>
+        <input type="text" id="price" placeholder="가격" required>
+        <input type="text" id="color" placeholder="색상" required>
+        <input type="text" id="size" placeholder="사이즈" required>
+        <button type="submit">추가</button>
+    </form>
+
+    <script>
+        const apiUrl = "http://localhost:3000/products";
+
+        function loadProducts() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.querySelector("#productTable tbody");
+                    tbody.innerHTML = "";
+                    data.forEach(product => {
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${product.name}</td>
+                            <td>${product.type}</td>
+                            <td>${product.brand}</td>
+                            <td>${product.year}</td>
+                            <td>${product.price}</td>
+                            <td>${product.color}</td>
+                            <td>${product.size}</td>
+                            <td><button onclick="editProduct(${product.id})">수정</button></td>
+                            <td><button onclick="deleteProduct(${product.id})">삭제</button></td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                });
+        }
+
+        function addProduct(event) {
+            event.preventDefault();
+            const newProduct = {
+                name: document.getElementById("name").value,
+                type: document.getElementById("type").value,
+                brand: document.getElementById("brand").value,
+                year: parseInt(document.getElementById("year").value),
+                price: document.getElementById("price").value,
+                color: document.getElementById("color").value,
+                size: document.getElementById("size").value
+            };
+
+            fetch(apiUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newProduct)
+            }).then(() => {
+                loadProducts();
+                document.getElementById("productForm").reset();
+            });
+        }
+
+        function deleteProduct(id) {
+            fetch(`${apiUrl}/${id}`, { method: "DELETE" })
+                .then(() => loadProducts());
+        }
+
+        function editProduct(id) {
+            const newName = prompt("새로운 제품명을 입력하세요:");
+            if (!newName) return;
+
+            fetch(`${apiUrl}/${id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: newName })
+            }).then(() => loadProducts());
+        }
+
+        document.getElementById("productForm").addEventListener("submit", addProduct);
+        loadProducts();
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 상세보기</title>
+    <link rel="stylesheet" href="my.css">
+    <script>
+        function confirmDelete() {
+            return confirm("게시물을 삭제할까요?");
+        }
+    </script>
+</head>
+<body>
+    <h1>TC PK 상세보기</h1>
+    <table>
+        <tr><th>제품명</th><td>TC PK</td></tr>
+        <tr><th>종류</th><td>PK티</td></tr>
+        <tr><th>브랜드</th><td>떠그클럽</td></tr>
+        <tr><th>구매일시</th><td>2022</td></tr>
+        <tr><th>가격</th><td>158,000원</td></tr>
+        <tr><th>색상</th><td>블랙</td></tr>
+        <tr><th>사이즈</th><td>L 사이즈</td></tr>
+    </table>
+
+    <button onclick="location.href='edit.html'">수정</button>
+    <button onclick="return confirmDelete()">삭제</button>
+    <button onclick="location.href='index.html'">목록</button>
+</body>
+</html>

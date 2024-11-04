@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구매 목록 수정</title>
+    <link rel="stylesheet" href="my.css">
+    <script>
+        function validateForm() {
+            let name = document.forms["itemForm"]["name"].value;
+            let type = document.forms["itemForm"]["type"].value;
+            let brand = document.forms["itemForm"]["brand"].value;
+            let date = document.forms["itemForm"]["date"].value;
+            let price = document.forms["itemForm"]["price"].value;
+            let color = document.forms["itemForm"]["color"].value;
+            let size = document.forms["itemForm"]["size"].value;
+
+            if (name === "") {
+                alert("제품명을 입력해 주세요.");
+                return false;
+            }
+            if (type === "") {
+                alert("종류를 입력해 주세요.");
+                return false;
+            }
+            if (brand === "") {
+                alert("브랜드를 입력해 주세요.");
+                return false;
+            }
+            if (date === "") {
+                alert("구매일시를 입력해 주세요.");
+                return false;
+            }
+            if (price === "" || isNaN(price)) {
+                alert("유효한 가격을 입력해 주세요.");
+                return false;
+            }
+            if (color === "") {
+                alert("색상을 입력해 주세요.");
+                return false;
+            }
+            if (size === "") {
+                alert("사이즈를 입력해 주세요.");
+                return false;
+            }
+            return confirm("게시물을 수정할까요?");
+        }
+    </script>
+</head>
+<body>
+    <h1>구매 목록 수정</h1>
+    <form name="itemForm" onsubmit="return validateForm()">
+        <label for="name">제품명:</label><br>
+        <input type="text" id="name" name="name" value="TC PK"><br>
+        
+        <label for="type">종류:</label><br>
+        <input type="text" id="type" name="type" value="PK티"><br>
+        
+        <label for="brand">브랜드:</label><br>
+        <input type="text" id="brand" name="brand" value="떠그클럽"><br>
+        
+        <label for="date">구매일시:</label><br>
+        <input type="text" id="date" name="date" value="2022"><br>
+        
+        <label for="price">가격:</label><br>
+        <input type="text" id="price" name="price" value="158,000"><br>
+        
+        <label for="color">색상:</label><br>
+        <input type="text" id="color" name="color" value="블랙"><br>
+        
+        <label for="size">사이즈:</label><br>
+        <input type="text" id="size" name="size" value="L 사이즈"><br><br>
+        
+        <button type="submit">확인</button>
+        <button type="button" onclick="location.href='index.html'">취소</button>
+    </form>
+</body>
+</html>

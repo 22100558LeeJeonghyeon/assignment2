@@ -2,41 +2,122 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>제품 관리</title>
     <style>
-        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+        /* 기본 스타일 설정 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* 어두운 배경색 */
+            color: #e0e0e0; /* 밝은 글자색 */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #1f1f1f; /* 어두운 회색 배경색 */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 더 부드러운 그림자 */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #00bcd4; /* 밝은 파란색 */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #37474f; /* 어두운 회색 테두리 */
+            border-radius: 4px;
+            background-color: #263238; /* 어두운 회색 배경 */
+            color: #e0e0e0; /* 밝은 글자색 */
+            margin-bottom: 1rem;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus {
+            border-color: #00bcd4; /* 밝은 파란색 포커스 테두리 */
+            outline: none;
+        }
+
+        button {
+            background-color: #00bcd4; /* 밝은 파란색 */
+            color: #ffffff; /* 흰색 글자 */
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* 부드러운 색상 전환 */
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #0097a7; /* 어두운 파란색 */
+        }
     </style>
 </head>
 <body>
-    <h1>제품 관리</h1>
-    <table id="productTable">
-        <thead>
-            <tr>
-                <th>제품명</th>
-                <th>종류</th>
-                <th>브랜드</th>
-                <th>구매연도</th>
-                <th>가격</th>
-                <th>색상</th>
-                <th>사이즈</th>
-                <th>수정</th>
-                <th>삭제</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div class="container">
+        <h1>제품 관리</h1>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>제품명</th>
+                    <th>종류</th>
+                    <th>브랜드</th>
+                    <th>구매연도</th>
+                    <th>가격</th>
+                    <th>색상</th>
+                    <th>사이즈</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
 
-    <h2>제품 추가</h2>
-    <form id="productForm">
-        <input type="text" id="name" placeholder="제품명" required>
-        <input type="text" id="type" placeholder="종류" required>
-        <input type="text" id="brand" placeholder="브랜드" required>
-        <input type="number" id="year" placeholder="구매연도" required>
-        <input type="text" id="price" placeholder="가격" required>
-        <input type="text" id="color" placeholder="색상" required>
-        <input type="text" id="size" placeholder="사이즈" required>
-        <button type="submit">추가</button>
-    </form>
+        <h2>제품 추가</h2>
+        <form id="productForm" class="form">
+            <input type="text" id="name" placeholder="제품명" required>
+            <input type="text" id="type" placeholder="종류" required>
+            <input type="text" id="brand" placeholder="브랜드" required>
+            <input type="number" id="year" placeholder="구매연도" required>
+            <input type="text" id="price" placeholder="가격" required>
+            <input type="text" id="color" placeholder="색상" required>
+            <input type="text" id="size" placeholder="사이즈" required>
+            <button type="submit">추가</button>
+        </form>
+    </div>
 
     <script>
         const apiUrl = "http://localhost:3000/products";
